@@ -5,15 +5,17 @@ pipeline {
         jdk 'JDK23'
     }
 
-    stage('Checkout Code') {
-        steps {
-            checkout scm
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
         }
-    }
 
-    stage('Build with Maven') {
-        steps {
-            bat 'mvn clean test'
+        stage('Build with Maven') {
+            steps {
+                bat 'mvn clean test'
+            }
         }
     }
 
